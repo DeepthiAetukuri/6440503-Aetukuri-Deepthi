@@ -1,0 +1,149 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+  padding: 0 15px 50px;
+}
+
+header {
+  background: #003366;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+nav label {
+  font-weight: bold;
+}
+
+nav select, nav input[type="text"] {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+}
+
+#eventsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.eventCard {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.eventCard:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.eventCard h3 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.eventCard p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.eventCard button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  background: #007acc;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.eventCard button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.eventCard button:hover:not(:disabled) {
+  background: #005fa3;
+}
+
+#registrationSection {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+#registrationSection h2 {
+  margin-top: 0;
+  color: #003366;
+}
+
+#registrationForm label {
+  display: block;
+  font-weight: 600;
+}
+
+#registrationForm input, #registrationForm select {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#registerBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#registerBtn:hover {
+  background: #218838;
+}
+
+#formMessage {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+}

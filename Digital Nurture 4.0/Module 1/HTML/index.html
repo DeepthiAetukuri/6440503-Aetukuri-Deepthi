@@ -17,18 +17,15 @@
       padding: 1em;
       margin-bottom: 1em;
     }
-
     nav a {
       color: white;
       margin-right: 1.5em;
       text-decoration: none;
       font-weight: bold;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     #welcomeBanner {
       background-color: #0074d9;
       color: white;
@@ -36,40 +33,34 @@
       margin-bottom: 1em;
       border-radius: 5px;
     }
-
     .highlight {
       background-color: #fffa8b;
       font-weight: bold;
       padding: 0 0.3em;
       border-radius: 3px;
     }
-
     table {
       border-collapse: collapse;
       width: 100%;
       max-width: 700px;
       margin-bottom: 2em;
     }
-
     th, td {
       padding: 0.5em;
       text-align: center;
       border: 1px solid #ddd;
     }
-
     .imgBorder {
       border: 2px solid #0074d9;
       border-radius: 5px;
       width: 100px;
       height: auto;
     }
-
     caption {
       font-weight: bold;
       margin-bottom: 0.5em;
       text-align: left;
     }
-
     form {
       max-width: 500px;
       background: white;
@@ -78,12 +69,10 @@
       margin-bottom: 2em;
       box-shadow: 0 0 5px #ccc;
     }
-
     label {
       display: block;
       margin: 0.5em 0 0.2em;
     }
-
     input, select, textarea, button {
       width: 100%;
       padding: 0.5em;
@@ -93,7 +82,6 @@
       box-sizing: border-box;
       font-size: 1em;
     }
-
     #submitFeedback, #clearPrefs, #findEventsBtn {
       width: auto;
       cursor: pointer;
@@ -104,22 +92,18 @@
       padding: 0.7em 1.2em;
       border-radius: 5px;
     }
-
     #submitFeedback:hover, #clearPrefs:hover, #findEventsBtn:hover {
       background-color: #005fa3;
     }
-
     #feedbackConfirmation, #videoStatus, #locationStatus {
       font-weight: bold;
       margin-top: 0.5em;
     }
-
     #promoVideo {
       max-width: 100%;
       border-radius: 5px;
       margin-bottom: 1em;
     }
-
     #eventImage {
       cursor: pointer;
       width: 200px;
@@ -129,7 +113,6 @@
   </style>
 </head>
 <body>
-
   <!-- Navigation -->
   <nav>
     <a href="#home">Home</a>
@@ -137,10 +120,8 @@
     <a href="#contact">Contact</a>
     <a href="help.html" target="_blank">Help</a>
   </nav>
-
   <!-- Main -->
   <main>
-
     <!-- Welcome Banner -->
     <div id="welcomeBanner">
       Welcome back, <span class="highlight">Resident!</span> 
@@ -155,9 +136,9 @@
 
     <!-- Events Section -->
     <section id="events">
-      <h2>Community Events Gallery</h2>
+      <h2>Gallery of Community Events</h2>
       <table>
-        <caption>Past Event Highlights</caption>
+        <caption>Highlights of past events</caption>
         <tbody>
           <tr>
             <td><img src="event1.jpg" alt="Spring Festival" title="Spring Festival" class="imgBorder" /><br>Spring Festival</td>
@@ -171,7 +152,6 @@
           </tr>
         </tbody>
       </table>
-
       <!-- Event Registration Form -->
       <h2>Register for an Event</h2>
       <form id="eventForm">
@@ -186,7 +166,7 @@
 
         <label for="eventType">Event Type:</label>
         <select id="eventType" name="eventType" required>
-          <option value="" disabled selected>Select event type</option>
+          <option value="" disabled selected>Select the event type</option>
           <option value="festival">Festival</option>
           <option value="concert">Concert</option>
           <option value="workshop">Workshop</option>
@@ -216,10 +196,10 @@
         <label for="eventSelect">Select Event:</label>
         <select id="eventSelect" name="eventSelect" required>
           <option value="" disabled selected>Select an event</option>
-          <option value="festival" data-fee="50">Festival</option>
-          <option value="concert" data-fee="40">Concert</option>
-          <option value="workshop" data-fee="30">Workshop</option>
-          <option value="meetup" data-fee="0">Meetup (Free)</option>
+          <option value="festival" fee="50">Festival</option>
+          <option value="concert" fee="40">Concert</option>
+          <option value="workshop" fee="30">Workshop</option>
+          <option value="meetup" fee="0">Meetup(Free)</option>
         </select>
         <p id="eventFee"></p>
 
@@ -265,18 +245,15 @@
     </section>
 
   </main>
-
   <!-- Footer -->
   <footer>
-    <p>© 2025 City Council. All rights reserved.</p>
+    <p>© 2025 Community Council. All rights reserved.</p>
   </footer>
-
   <!-- JavaScript -->
   <script>
     // Task 5: Registration form submit handler with confirmation output
     const eventForm = document.getElementById("eventForm");
     const formOutput = document.getElementById("formOutput");
-
     eventForm.addEventListener("submit", (e) => {
       e.preventDefault();
       formOutput.textContent = `Thank you, ${eventForm.name.value.trim()}, for registering for the ${eventForm.eventType.value} event on ${eventForm.date.value}.`;
@@ -284,7 +261,6 @@
       localStorage.removeItem("preferredEventType"); // Optionally clear saved pref on submit
       sessionStorage.removeItem("preferredEventTypeSession");
     });
-
     // Task 6: Feedback event handlers
     const phoneInput = document.getElementById("phone");
     phoneInput.onblur = function () {
@@ -294,16 +270,14 @@
         this.focus();
       }
     };
-
     const eventSelect = document.getElementById("eventSelect");
     const eventFeeDisplay = document.getElementById("eventFee");
     eventSelect.onchange = function () {
       const selectedOption = this.options[this.selectedIndex];
-      const fee = selectedOption.getAttribute("data-fee");
+      const fee = selectedOption.getAttribute("fee");
       eventFeeDisplay.textContent =
         fee == 0 ? "This event is free!" : `Event Fee: $${fee}`;
     };
-
     const submitBtn = document.getElementById("submitFeedback");
     const feedbackConfirmation = document.getElementById("feedbackConfirmation");
     submitBtn.onclick = function () {
@@ -315,7 +289,6 @@
       }
       feedbackConfirmation.textContent = `Thank you for your feedback about the ${eventName}!`;
     };
-
     const eventImage = document.getElementById("eventImage");
     let enlarged = false;
     eventImage.ondblclick = function () {
@@ -327,23 +300,18 @@
         enlarged = false;
       }
     };
-
     const feedbackText = document.getElementById("feedbackText");
     const charCount = document.getElementById("charCount");
     feedbackText.addEventListener("input", function () {
       charCount.textContent = this.value.length;
     });
-
-    // Task 7: Video invite with oncanplay and onbeforeunload warning
+    // Task 7
     const promoVideo = document.getElementById("promoVideo");
     const videoStatus = document.getElementById("videoStatus");
-
     function videoReady() {
       videoStatus.textContent = "Video ready to play.";
     }
-
     window.onbeforeunload = function (e) {
-      // Warn if form has data filled and not submitted
       if (
         eventForm.name.value ||
         eventForm.email.value ||
@@ -356,19 +324,15 @@
       }
     };
 
-    // Task 8: Saving user preferences in localStorage/sessionStorage and clear
+    // Task 8
     const eventTypeSelect = document.getElementById("eventType");
     const clearPrefsBtn = document.getElementById("clearPrefs");
-
-    // Load preferred event type on page load
     window.addEventListener("load", () => {
       const savedPref = localStorage.getItem("preferredEventType");
       if (savedPref) {
         eventTypeSelect.value = savedPref;
       }
     });
-
-    // Save to localStorage on change
     eventTypeSelect.addEventListener("change", () => {
       localStorage.setItem("preferredEventType", eventTypeSelect.value);
       sessionStorage.setItem("preferredEventTypeSession", eventTypeSelect.value);
@@ -380,17 +344,13 @@
       eventTypeSelect.value = "";
       alert("Preferences cleared.");
     });
-
-    // Task 9: Geolocation for nearest events
     const findEventsBtn = document.getElementById("findEventsBtn");
     const locationStatus = document.getElementById("locationStatus");
-
     findEventsBtn.addEventListener("click", () => {
       if (!navigator.geolocation) {
         locationStatus.textContent = "Geolocation is not supported by your browser.";
         return;
       }
-
       locationStatus.textContent = "Locating...";
 
       const options = {
@@ -398,14 +358,12 @@
         timeout: 10000,
         maximumAge: 0,
       };
-
       function success(position) {
         const lat = position.coords.latitude.toFixed(5);
         const lon = position.coords.longitude.toFixed(5);
         locationStatus.textContent = `Your coordinates: Latitude ${lat}, Longitude ${lon}`;
         // Here you can add logic to find nearby events using coordinates
       }
-
       function error(err) {
         if (err.code === err.PERMISSION_DENIED) {
           locationStatus.textContent = "Permission denied. Cannot access location.";
@@ -415,13 +373,9 @@
           locationStatus.textContent = "Error getting location: " + err.message;
         }
       }
-
       navigator.geolocation.getCurrentPosition(success, error, options);
     });
-
-    // Task 10: Debugging helpers - console logs and breakpoints example
-    console.log("Page loaded - City Council Event Portal");
-
+    console.log("Page loaded -The Community Event Portal");
   </script>
 </body>
 </html>

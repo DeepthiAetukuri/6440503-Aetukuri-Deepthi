@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header id="mainHeader">
+    <h1>Local Community Event Portal</h1>
+  </header>
+
+  <nav>
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="music">Music</option>
+      <option value="workshop">Workshop</option>
+      <option value="wellness">Wellness</option>
+    </select>
+
+    <input type="text" id="searchInput" placeholder="Search by event name..." />
+  </nav>
+
+  <main>
+    <section id="eventsContainer">
+      <!-- Event cards dynamically inserted here -->
+    </section>
+
+    <section id="registrationSection">
+      <h2>Register for an Event</h2>
+      <form id="registrationForm">
+        <label>
+          Name: <input type="text" name="name" required autofocus placeholder="Your full name" />
+        </label><br /><br />
+        <label>
+          Email: <input type="email" name="email" required placeholder="your.email@example.com" />
+        </label><br /><br />
+        <label>
+          Select Event:
+          <select name="event" required>
+            <!-- Options dynamically added -->
+          </select>
+        </label><br /><br />
+        <button type="submit" id="registerBtn">Register</button>
+      </form>
+      <div id="formMessage" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Local Community Events</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
